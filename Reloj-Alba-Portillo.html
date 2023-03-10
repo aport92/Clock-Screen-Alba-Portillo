@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Js</title>
+</head>
+
+<body>
+    <div id="reloj" class="reloj">00 : 00 : 00</div>
+</body>
+<script>
+
+    function actual() {
+        fecha = new Date();
+        hora = fecha.getHours();
+        minuto = fecha.getMinutes();
+        segundo = fecha.getSeconds();
+
+        if (hora < 10) {
+            hora = "0" + hora;
+        }
+        if (minuto < 10) {
+            minuto = "0" + minuto;
+        }
+        if (segundo < 10) {
+            segundo = "0" + segundo;
+        }
+
+        mireloj = hora + " : " + minuto + " : " + segundo;
+        return mireloj;
+    }
+    function actualizar() {
+        mihora = actual();
+        mireloj = document.getElementById("reloj");
+        mireloj.innerHTML = mihora;
+    }
+    setInterval(actualizar, 1000);
+
+</script>
+
+</html>
+<style>
+    body {
+        background-color: #012d49;
+    }
+
+    #reloj {
+        margin-top: 30%;
+        font: bold 1.5em dotum, "Helvetica", arial;
+        text-align: center;
+        color: white;
+    }
+</style>
